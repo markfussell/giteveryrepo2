@@ -1,7 +1,7 @@
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   
-  "Description" : "GitEverythingServer1.template -- Upload from https://github.com/markfussell/giteveryrepo1/blob/master/it/aws/cloudformation/GitEverythingServer1.template",
+  "Description" : "GitEverythingServer2.template -- Upload from https://github.com/markfussell/giteveryrepo2/blob/master/it/aws/cloudformation/GitEverythingServer2.template",
 
   "Parameters" : {
       
@@ -80,6 +80,12 @@
                 },
                 {
                     "IpProtocol":"tcp",
+                    "FromPort":"80",
+                    "ToPort":"80",
+                    "CidrIp":"0.0.0.0/0"
+                },
+                {
+                    "IpProtocol":"tcp",
                     "FromPort":"22",
                     "ToPort":"22",
                     "CidrIp":"0.0.0.0/0"
@@ -143,7 +149,11 @@
           "yum -y install git \n",
           "mkdir /root/gitrepo \n",
           "cd /root/gitrepo \n",
-          "git clone git://github.com/markfussell/giteveryrepo1.git  \n",
+          "git clone git://github.com/markfussell/giteveryrepo2.git  \n",
+
+          "yum -y install httpd \n",
+          "echo `hostname` > /var/www/html/index.html \n",
+          "service httpd restart \n",
 
           "# All is well so signal success\n",
           "/opt/aws/bin/cfn-signal -e 0 -r \"LAMP Stack setup complete\" '", { "Ref" : "WaitHandle" }, "'\n",
