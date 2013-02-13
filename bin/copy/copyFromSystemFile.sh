@@ -13,7 +13,7 @@ export REPO_ROOT_DIR=`git rev-parse --show-toplevel`/
 export COMP_PATH=${REPO_ROOT_DIR}it/comp/
 
 export HOST_KEY=`hostname | tr '[:upper:]' '[:lower:]'`
-export HOST_DIR=${COMP_PATH}${HOSTKEY}/
+export HOST_DIR=${COMP_PATH}${HOST_KEY}/
 
 for FILE_PATH in "$@"; do
     export FILE_DIR_PATH=`dirname ${FILE_PATH}`

@@ -13,7 +13,7 @@ export REPO_ROOT_DIR=`git rev-parse --show-toplevel`/
 export COMP_PATH=${REPO_ROOT_DIR}it/comp/
 
 export HOST_KEY=`hostname | tr '[:upper:]' '[:lower:]'`
-export HOST_DIR=${COMP_PATH}${HOSTKEY}/
+export HOST_DIR=${COMP_PATH}${HOST_KEY}/
 
 export DATE=`date +%Y%m%d-%H%M%S`
 
